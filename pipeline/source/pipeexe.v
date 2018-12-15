@@ -18,6 +18,7 @@ module pipeexe (ealuc, ealuimm, ea, eb, eimm, eshift, ern0, epc4, ejal, ern, eal
     // return result or epc8
     mux2x32 save_pc8 (ealu0,epc8,ejal,ealu);
 
+    // target register. As the ejal's wreg is 1 and target reg is r31.
     assign  ern = ern0 | {5{ejal}};
     alu     al_unit (alua, alub, ealuc, ealu0, z);
     // without handling z
